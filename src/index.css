@@ -1,0 +1,254 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Outfit', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Default Night (Deep Navy / Midnight) Theme Tokens */
+    --app-bg: #030712;
+    --app-text: #F1F5F9;
+    --app-text-muted: #94A3B8;
+    --panel-bg: rgba(8, 19, 43, 0.75);
+    --panel-border: rgba(59, 130, 246, 0.22);
+    --panel-border-hover: rgba(56, 189, 248, 0.5);
+    --panel-shadow: 0 20px 45px -15px rgba(2, 6, 23, 0.95);
+    --card-subtle-bg: rgba(13, 27, 58, 0.8);
+    --card-subtle-border: rgba(30, 58, 138, 0.65);
+    --nav-bg: rgba(5, 12, 28, 0.9);
+    --nav-border: rgba(30, 58, 138, 0.6);
+    --glow-primary: rgba(59, 130, 246, 0.35);
+    --accent-cyan: #38BDF8;
+    --scrollbar-track: rgba(5, 11, 24, 0.8);
+    --scrollbar-thumb: rgba(255, 255, 255, 0.15);
+  }
+
+  /* Day Theme Tokens: Complete vibrant sunny yellow theme across entire website */
+  .theme-day {
+    --app-bg: #FEF9E7;
+    --app-text: #1C1917;
+    --app-text-muted: #78350F;
+    --panel-bg: rgba(255, 252, 235, 0.92);
+    --panel-border: rgba(245, 158, 11, 0.45);
+    --panel-border-hover: rgba(217, 119, 6, 0.75);
+    --panel-shadow: 0 16px 36px -10px rgba(217, 119, 6, 0.22), 0 4px 16px -4px rgba(245, 158, 11, 0.12);
+    --card-subtle-bg: rgba(254, 243, 199, 0.88);
+    --card-subtle-border: rgba(245, 158, 11, 0.45);
+    --nav-bg: rgba(254, 249, 195, 0.95);
+    --nav-border: rgba(245, 158, 11, 0.55);
+    --glow-primary: rgba(245, 158, 11, 0.55);
+    --accent-cyan: #D97706;
+    --scrollbar-track: #FEF3C7;
+    --scrollbar-thumb: rgba(217, 119, 6, 0.4);
+  }
+
+  /* Night Theme Tokens: Deep dark navy blue theme across entire website */
+  .theme-night {
+    --app-bg: #030712;
+    --app-text: #F1F5F9;
+    --app-text-muted: #94A3B8;
+    --panel-bg: rgba(8, 19, 43, 0.75);
+    --panel-border: rgba(59, 130, 246, 0.22);
+    --panel-border-hover: rgba(56, 189, 248, 0.5);
+    --panel-shadow: 0 20px 45px -15px rgba(2, 6, 23, 0.95);
+    --card-subtle-bg: rgba(13, 27, 58, 0.8);
+    --card-subtle-border: rgba(30, 58, 138, 0.65);
+    --nav-bg: rgba(5, 12, 28, 0.9);
+    --nav-border: rgba(30, 58, 138, 0.6);
+    --glow-primary: rgba(59, 130, 246, 0.35);
+    --accent-cyan: #38BDF8;
+    --scrollbar-track: rgba(5, 11, 24, 0.8);
+    --scrollbar-thumb: rgba(255, 255, 255, 0.15);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--app-bg);
+    color: var(--app-text);
+    overflow-x: hidden;
+    transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Glassmorphism card utilities bound to active theme */
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--panel-shadow), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  transition: background-color 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease;
+}
+
+.glass-panel-interactive {
+  background: var(--panel-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--panel-shadow), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.6s ease, border-color 0.6s ease;
+}
+
+.glass-panel-interactive:hover {
+  border-color: var(--panel-border-hover);
+  box-shadow: 0 25px 50px -12px var(--glow-primary), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--panel-border);
+}
+
+/* Day theme specific typography & card adjustments for rich yellow daylight */
+.theme-day .text-white {
+  color: #1C1917 !important;
+}
+
+.theme-day .text-slate-100 {
+  color: #292524 !important;
+}
+
+.theme-day .text-slate-200 {
+  color: #44403C !important;
+}
+
+.theme-day .text-slate-300 {
+  color: #57534E !important;
+}
+
+.theme-day .text-slate-400 {
+  color: #78716C !important;
+}
+
+.theme-day .text-slate-500 {
+  color: #92400E !important;
+}
+
+.theme-day .bg-slate-900\/90,
+.theme-day .bg-slate-900\/80,
+.theme-day .bg-slate-900\/70,
+.theme-day .bg-slate-900\/60,
+.theme-day .bg-slate-800,
+.theme-day .bg-slate-800\/80,
+.theme-day .bg-slate-800\/60 {
+  background-color: rgba(254, 243, 199, 0.92) !important;
+  color: #1C1917 !important;
+}
+
+.theme-day .border-slate-800,
+.theme-day .border-slate-800\/80,
+.theme-day .border-slate-800\/90,
+.theme-day .border-slate-700,
+.theme-day .border-slate-700\/60,
+.theme-day .border-slate-700\/80,
+.theme-day .border-white\/10 {
+  border-color: rgba(245, 158, 11, 0.35) !important;
+}
+
+.theme-day .bg-\[\#06080F\]\/80,
+.theme-day .bg-\[\#06080F\]\/90,
+.theme-day .bg-\[\#04060A\]\/95 {
+  background-color: rgba(255, 251, 235, 0.95) !important;
+}
+
+.theme-day input {
+  background-color: #FFFBEB !important;
+  color: #1C1917 !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+}
+
+.theme-day input::placeholder {
+  color: #92400E !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(6, 8, 15, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.4);
+}
+
+/* Ambient gradients */
+.glow-cyan {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0) 70%);
+}
+
+.glow-orange {
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, rgba(249, 115, 22, 0) 70%);
+}
+
+.glow-indigo {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
+}
+
+/* Keyframes for atmospheric elements */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.04); }
+}
+
+@keyframes driftSlow {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(30px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes rainFall {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 8s ease-in-out infinite;
+}
+
+.animate-drift {
+  animation: driftSlow 20s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+/* Leaflet map styles reset in dark theme */
+.leaflet-container {
+  background: #06080F !important;
+  font-family: var(--font-sans) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(13, 19, 33, 0.95) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(12px) !important;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(13, 19, 33, 0.95) !important;
+}
